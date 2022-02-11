@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express')
 const path = require('path')
 const app = express()
@@ -26,6 +27,7 @@ app.get('/', (req, res) => {
 
 app.get('/api/robots', (req, res) => {
     try {
+        rollbar.error('Someone tried to get all the bots')
         res.status(200).send(botsArr)
     } catch (error) {
         console.log('ERROR GETTING BOTS', error)
@@ -65,9 +67,11 @@ app.post('/api/duel', (req, res) => {
         // comparing the total health to determine a winner
         if (compHealthAfterAttack > playerHealthAfterAttack) {
             playerRecord.losses++
+            rollbar.info('someone just lost the game')
             res.status(200).send('You lost!')
         } else {
             playerRecord.losses++
+            rollbar.error('someone hit the win record error')
             res.status(200).send('You won!')
         }
     } catch (error) {
