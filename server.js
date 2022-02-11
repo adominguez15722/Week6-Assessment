@@ -5,10 +5,11 @@ const {bots, playerRecord} = require('./data')
 const {shuffleArray} = require('./utils')
 
 app.use(express.json())
+app.use(express.static('public'))
 
 app.get('/', (req, res) => {
     console.log('test')
-    res.sendFile(path.join(__dirname, 'public/index.html'))
+    res.sendFile(path.join(__dirname, './public/index.html'))
 })
 
 // app.get('/', (req, res) => {
