@@ -18,7 +18,8 @@ app.use(express.static('public'))
 
 app.get('/', (req, res) => {
     console.log('test')
-    rollbar.log('hello world')
+
+    rollbar.info('Someone is looking at your page')
     res.sendFile(path.join(__dirname, './public/index.html'))
 })
 
