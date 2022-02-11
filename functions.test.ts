@@ -2,7 +2,8 @@ const {shuffleArray} = require('./utils')
 
 describe('shuffleArray should', () => {
     test('return not a number', () => {
-        expect(shuffleArray([1, 2, 3])).toBeNaN()
+        let shuffled = shuffleArray([1, 2, 3])
+        expect(shuffled).not.toBeNaN()
         
     }),
 
