@@ -27,7 +27,7 @@ test('Clicking draw button displays the div with id="choices"', async () => {
     expect(fills).toBe(true)
 })
 
-test('Resetting page should show on page', async () => {
+test('Resetting page should show losses on page', async () => {
     const losses = await driver.findElement(By.xpath("//*[contains(text(), 'Losses:' )]"))
     
     expect(losses).toBeTruthy()
